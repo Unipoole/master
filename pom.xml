@@ -1,0 +1,748 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>coza.opencollab.unipoole</groupId>
+    <artifactId>master</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <!-- 
+        This is a human readable name. Used in documentation and some files 
+        Must Overwrite
+    -->
+    <name>Unipoole Master</name>
+    <!-- 
+        The description is user in documentation 
+        Must Overwrite
+    -->
+    <description>The Unipoole master pom</description>
+    <!--
+        The url to the project documentation. 
+        The documentation is managed by this pom.
+    -->
+    <url>http://unipoole.opencollab.co.za/reports/master</url>
+    <!-- The project start date -->
+    <inceptionYear>2013</inceptionYear>
+    <organization>
+        <name>OpenCollab</name>
+        <url>http://www.opencollab.co.za/</url>
+    </organization>
+    <!-- The developers on the project -->
+    <developers>
+        <developer>
+            <id>jaques</id>
+            <name>Jaques</name>
+            <email>jaques@opencollab.co.za</email>
+            <roles>
+                <role>Technical Lead</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>samuel</id>
+            <name>Samuel</name>
+            <email>samuel@opencollab.co.za</email>
+            <roles>
+                <role>Project Manager</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>francois</id>
+            <name>Francois</name>
+            <email>francois@opencollab.co.za</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>charl</id>
+            <name>Charl</name>
+            <email>charl@opencollab.co.za</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>               
+    </developers>
+    <!-- Links to the project on Jira -->
+    <issueManagement>
+        <system>OpenCollab Jira</system>
+        <url>http://jira.opencollab.co.za/browse/UNI</url>
+    </issueManagement>
+    <!-- 
+        Links to the project on Jenkins. 
+        Note that the Jenkins project name must be uni-artifactId!
+    -->
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://ci.opencollab.co.za/jenkins/view/Unipoole/job/uni-${project.artifactId}/</url>
+    </ciManagement>
+    <!-- 
+        The source control locations.
+        Note that the source control name must be the same as the artifact name
+    -->
+    <scm>
+        <connection>scm:svn:http://svn.opencollab.co.za:18080/svn/unipoole/${project.artifactId}/trunk</connection>
+        <developerConnection>scm:svn:http://svn.opencollab.co.za:18080/svn/unipoole/${project.artifactId}/trunk</developerConnection>
+        <url>http://svn.opencollab.co.za:18080/viewvc/unipoole/${project.artifactId}/trunk</url>
+    </scm>
+    <prerequisites>
+        <maven>3.0.4</maven>
+    </prerequisites>
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 
+            The sonar project type. This is only xml for the master projects.
+            In 'real' projects this must be set back to java.
+        -->
+        <sonar.language>xml</sonar.language>
+        <!-- 
+            Version properties are only set for multi dependencies,
+            The rest of the versions are set in the dependency.
+        -->
+        <springframework.version>3.2.3.RELEASE</springframework.version>
+        <springframework.security.version>3.1.4.RELEASE</springframework.security.version>
+        <samigo.version>2.9.1</samigo.version>
+    </properties>
+    <!-- 
+        All dependencies must be declared here so that version management can
+        be handled in one place
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-ldap</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${springframework.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <!-- Sakai dependencies -->
+            <dependency>
+                <groupId>org.sakaiproject.announcement</groupId>
+                <artifactId>sakai-announcement-api</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.kernel</groupId>
+                <artifactId>sakai-kernel-api</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.kernel</groupId>
+                <artifactId>sakai-kernel-util</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.kernel</groupId>
+                <artifactId>sakai-component-manager</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.message</groupId>
+                <artifactId>sakai-message-api</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency> 
+                <groupId>org.sakaiproject.samigo</groupId> 
+                <artifactId>samigo-qti</artifactId> 
+                <version>${samigo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.calendar</groupId>
+                <artifactId>sakai-calendar-api</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.etudes</groupId>
+                <artifactId>etudes-melete-api</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.etudes</groupId>
+                <artifactId>etudes-melete-impl</artifactId>
+                <version>2.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.yaft</groupId>
+                <artifactId>yaft-api</artifactId>
+                <version>1.3.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-api</artifactId>
+                <version>${samigo.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-hibernate</artifactId>
+                <version>${samigo.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-services</artifactId>
+                <version>${samigo.version}</version>
+                <type>jar</type>
+            </dependency>
+            <!-- Other dependencies alphabetical -->
+            <dependency>
+                <groupId>commons-discovery</groupId>
+                <artifactId>commons-discovery</artifactId>
+                <version>0.5</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>11.1.0.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hazelcast</groupId>
+                <artifactId>hazelcast</artifactId>
+                <version>3.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-web-api</artifactId>
+                <version>6.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.sql</groupId>
+                <artifactId>jdbc-stdext</artifactId>
+                <version>2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.transaction</groupId>
+                <artifactId>jta</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.htmlcleaner</groupId>
+                <artifactId>htmlcleaner</artifactId>
+                <version>2.5</version><!-- XXX 2.6.1? -->
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis</groupId>
+                <artifactId>axis</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis</groupId>
+                <artifactId>axis-jaxrpc</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis</groupId>
+                <artifactId>axis-saaj</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>axis</groupId>
+                <artifactId>axis-wsdl4j</artifactId>
+                <version>1.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tiles</groupId>
+                <artifactId>tiles-extras</artifactId>
+                <version>2.2.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.7.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>ejb3-persistence</artifactId>
+                <version>1.0.2.GA</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate</artifactId>
+                <version>3.2.7.ga</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>3.3.2.GA</version>
+            </dependency>
+            <dependency>
+                <groupId>org.masukomi</groupId>
+                <artifactId>aspirin</artifactId>
+                <version>0.10.03</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.5.11</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.5.11</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>wsdl4j</groupId>
+                <artifactId>wsdl4j</artifactId>
+                <version>1.6.2</version>
+            </dependency>
+            <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>1.0.b2</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!-- The reporting section sets the configuration for all projects. -->
+    <!-- <reporting>
+        <excludeDefaults>false</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports> -->
+                            <!-- generate the Project Continuous Integration System report. -->
+                            <!--<report>cim</report>-->
+                            <!-- generate the Project Dependencies report. -->
+                            <!--<report>dependencies</report>-->
+                            <!-- generate the Project Dependency Convergence report for reactor builds. -->
+                            <!--<report>dependency-convergence</report>-->
+                            <!-- generate code snippets to be added to build tools. -->
+                            <!--<report>dependency-info</report>-->
+                            <!-- generate the Project DependencyManagement report. -->
+                            <!--<report>dependency-management</report>-->
+                            <!-- generate the Project Distribution Management report. -->
+                            <!--<report>distribution-management</report>-->
+                            <!-- generate the Project index page. -->
+                            <!--<report>index</report>-->
+                            <!-- generate the Project Issue Tracking report. -->
+                            <!--<report>issue-tracking</report>-->
+                            <!-- generate the Project License report.
+                            <report>license</report> -->
+                            <!-- generate the Project Mailing List report.
+                            <report>mailing-list</report> -->
+                            <!-- generate the Project Modules report. -->
+                            <!--<report>modules</report>-->
+                            <!-- generate the Project PluginManagement report. -->
+                            <!--<report>plugin-management</report>-->
+                            <!-- generate the Project Plugins report. -->
+                            <!--<report>plugins</report>-->
+                            <!-- generate the Project Team report. -->
+                            <!--<report>project-team</report>-->
+                            <!-- generate the Project Source Code Management report. -->
+                            <!--<report>scm</report>-->
+                            <!-- generate the Project information reports summary. -->
+<!--                            <report>summary</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.15</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-changes-plugin</artifactId>
+                <version>2.9</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            
+                            <report>jira-report</report>
+                            
+                            <report>changes-report</report>
+                        </reports>
+                        <configuration>
+                            
+                            <useJql>true</useJql>
+                            <onlyCurrentVersion>true</onlyCurrentVersion>
+                            <resolutionIds>Fixed</resolutionIds>
+                            <statusIds>Resolved, Closed</statusIds>
+                            <typeIds>Bug, New Feature, Improvement, Wish</typeIds>
+                            <filter>resolution=1&amp;sorter/field=issuetype&amp;sorter/order=ASC</filter>
+                            <columnNames>Type,Key,Summary,Assignee,Status,Resolution,Fix Version</columnNames>
+                            <sortColumnNames>Type,Key DESC</sortColumnNames>
+                            
+                        </configuration>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc </report>
+                            <report>test-javadoc</report>
+                        </reports>
+                        <configuration>
+                            
+                            <stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile>
+                            
+                            <show>private</show>
+                        </configuration>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>-->
+    <build>
+        <sourceDirectory>${basedir}</sourceDirectory>
+        <!--
+            All plugins used must be declared here to manage the versions
+        -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>  
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+                <plugin>
+                    <!-- http://tomcat.apache.org/maven-plugin-2.1/index.html -->
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-site-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>src/site</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                            <outputDirectory>${basedir}/target/site-config</outputDirectory>
+                        </configuration>
+                        <inherited>false</inherited>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <siteDirectory>${basedir}/target/site-config</siteDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagBase>http://svn.opencollab.co.za:18080/svn/unipoole/${project.artifactId}/tags</tagBase>
+                    <scmCommentPrefix>NoJira Release Build:</scmCommentPrefix>
+                </configuration>
+                <!--notes>
+                    Dry Run: mvn release:prepare -DdryRun=true
+                    Cleanup: mvn release:clean
+                    
+                    Note: 2 x - is given a space here but should not have a space when used
+                    Batch Mode for CI: mvn - -batch-mode release:prepare
+                </notes-->
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- Declare the nexus repository locations -->
+    <distributionManagement>
+        <repository>
+            <id>oc-nexus-releases</id>
+            <name>OpenCollab Nexus Release Repo</name>
+            <url>http://nexus.opencollab.co.za/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>oc-nexus-snapshot</id>
+            <name>OpenCollab Nexus Snapshot Repo</name>
+            <url>http://nexus.opencollab.co.za/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <name>OpenCollab Nexus Release Repo</name>
+            <id>oc-nexus-releases</id>
+            <url>http://nexus.opencollab.co.za/nexus/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <name>OpenCollab Nexus Snapshot Repo</name>
+            <id>oc-nexus-snapshots</id>
+            <url>http://nexus.opencollab.co.za/nexus/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <!-- we use the default outputDirectory -->
+        </profile>
+        <profile>
+            <id>nightly</id>
+<!--            <reporting>
+                 The output dir for the report site for nightly builds, used in Jenkins builds 
+                <outputDirectory>/mnt/nightly-tomcat/${project.artifactId}</outputDirectory>
+            </reporting>-->
+        </profile>
+        <profile>
+            <id>release</id>
+<!--            <reporting>
+                 The output dir for the report site for bi-weekly builds, used in Jenkins builds 
+                <outputDirectory>/mnt/reports-tomcat/${project.artifactId}</outputDirectory>
+            </reporting>-->
+        </profile>
+        <profile>
+            <id>unisa</id>
+            <!-- we use the default outputDirectory -->
+        </profile>
+    </profiles>
+</project>

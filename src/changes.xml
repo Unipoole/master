@@ -1,0 +1,23 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    
+    <!-- see this reference: http://maven.apache.org/plugins/maven-changes-plugin/changes.html -->
+    <properties>
+        <title>Changes to Unipoole Master</title>
+        <author email="jaques@opencollab.co.za">Jaques</author>
+    </properties>
+    <body>
+        <release version="1.0.0" date="2013-07-03" description="First Release">
+            <action dev="jaques" type="add">
+                Created the project and configured the pom.
+            </action>
+            <action dev="jaques" type="add">
+                Added all project information.
+            </action>
+            <action dev="jaques" type="add">
+                Did the reporting setup.
+            </action>
+        </release>
+    </body>
+</document>

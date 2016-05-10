@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.4.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd">
+    
+    <!-- see: http://maven.apache.org/plugins/maven-site-plugin/examples/sitedescriptor.html
+    http://maven.apache.org/doxia/doxia-sitetools/doxia-decoration-model/decoration.html -->
+    
+    
+    <bannerLeft>
+        <name>OpenCollab</name>
+        <alt>OpenCollab Logo</alt>
+        <src>images/oc-logo.jpg</src>
+        <href>http://www.opencollab.co.za/</href>
+    </bannerLeft>
+    <bannerRight>
+        <name>UNISA</name>
+        <alt>UNISA Logo</alt>
+        <src>images/unisa-logo.gif</src>
+        <href>http://www.unisa.ac.za/</href>
+    </bannerRight>
+    <!--
+    <poweredBy>
+        <logo name="OpenCollab" href="http://www.opencollab.co.za/"
+          img="http://ci.opencollab.co.za/oc-logo-small.jpg"/>
+    </poweredBy>
+    -->
+    <skin>
+        <groupId>coza.opencollab.maven.skins</groupId>
+        <artifactId>maven-opencollab-skin</artifactId>
+        <version>1.0</version>
+    </skin>
+    <body>
+        <menu name="Reports Menu">
+            <item name="Back" href="../"/>
+        </menu>
+        <menu name="Overview" >
+            <item name="Introduction" href="index.html"/>
+            <item name="Project Information" href="project-info.html"/>
+            <item name="Plugin Management" href="plugin-management.html"/>
+            <item name="Project Plugins" href="plugins.html"/>
+            <item name="Distribution Management" href="distribution-management.html"/>
+            <item name="Dependency Management" href="dependency-management.html"/>
+            <item name="Dependency Information" href="dependency-info.html"/>
+            <item name="Dependencies" href="dependencies.html"/>
+            <item name="Source Repository" href="source-repository.html"/>
+            <item name="Issue Tracking" href="issue-tracking.html"/>
+            <item name="Continuous Integration" href="integration.html"/>
+            <item name="Project Team" href="team-list.html"/>
+            <item name="Project Summary" href="project-summary.html"/>
+        </menu>
+        <menu name="Reports">
+            <item name="Sonar" href="http://ci.opencollab.co.za:9000/dashboard/index/${project.groupId}:${project.artifactId}"/>
+            <item name="Surefire Report" href="surefire-report.html"/>
+            <item name="Javadoc" href="apidocs/index.html" target="_blank"/>
+        </menu>
+        <menu name="Tools">
+            <item name="Java" href="http://www.java.com/"/>
+            <item name="Spring" href="http://www.springsource.org/"/>
+            <item name="Maven" href="http://maven.apache.org/"/>
+            <item name="HTML5" href="http://www.html5rocks.com/"/>
+            <item name="Jenkins" href="http://jenkins-ci.org/"/>
+            <item name="Sonar" href="http://www.sonarqube.org/"/>
+            <item name="NodeJS" href="http://nodejs.org/"/>
+        </menu>
+    </body>
+</project>
