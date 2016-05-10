@@ -18,7 +18,7 @@
         The url to the project documentation. 
         The documentation is managed by this pom.
     -->
-    <url>http://unipoole.opencollab.co.za/reports/master</url>
+    <url>https://github.com/Unipoole/master</url>
     <!-- The project start date -->
     <inceptionYear>2013</inceptionYear>
     <organization>
@@ -63,26 +63,18 @@
         </developer>               
     </developers>
     <!-- Links to the project on Jira -->
-    <issueManagement>
-        <system>OpenCollab Jira</system>
-        <url>http://jira.opencollab.co.za/browse/UNI</url>
-    </issueManagement>
     <!-- 
         Links to the project on Jenkins. 
         Note that the Jenkins project name must be uni-artifactId!
     -->
-    <ciManagement>
-        <system>Jenkins</system>
-        <url>http://ci.opencollab.co.za/jenkins/view/Unipoole/job/uni-${project.artifactId}/</url>
-    </ciManagement>
     <!-- 
         The source control locations.
         Note that the source control name must be the same as the artifact name
     -->
     <scm>
-        <connection>scm:svn:http://svn.opencollab.co.za:18080/svn/unipoole/${project.artifactId}/trunk</connection>
-        <developerConnection>scm:svn:http://svn.opencollab.co.za:18080/svn/unipoole/${project.artifactId}/trunk</developerConnection>
-        <url>http://svn.opencollab.co.za:18080/viewvc/unipoole/${project.artifactId}/trunk</url>
+        <connection>scm:svn:https://github.com/Unipoole/master/tree/master</connection>
+        <developerConnection>scm:svn:https://github.com/Unipoole/master/tree/master</developerConnection>
+        <url>https://github.com/Unipoole/master</url>
     </scm>
     <prerequisites>
         <maven>3.0.4</maven>
