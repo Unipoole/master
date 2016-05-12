@@ -72,8 +72,8 @@
         Note that the source control name must be the same as the artifact name
     -->
     <scm>
-        <connection>scm:svn:https://github.com/Unipoole/master/tree/master</connection>
-        <developerConnection>scm:svn:https://github.com/Unipoole/master/tree/master</developerConnection>
+        <connection>scm:git:https://github.com/Unipoole/master/tree/master</connection>
+        <developerConnection>scm:git:https://github.com/Unipoole/master/tree/master</developerConnection>
         <url>https://github.com/Unipoole/master</url>
     </scm>
     <prerequisites>
@@ -723,4 +723,8 @@
             <!-- we use the default outputDirectory -->
         </profile>
     </profiles>
+    <ciManagement>
+    	<system>Travis-CI</system>
+    	<url>https://travis-ci.org/Unipoole/master</url>
+    </ciManagement>
 </project>
