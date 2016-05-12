@@ -719,20 +719,6 @@
             <!-- we use the default outputDirectory -->
         </profile>
         <profile>
-            <id>nightly</id>
-<!--            <reporting>
-                 The output dir for the report site for nightly builds, used in Jenkins builds 
-                <outputDirectory>/mnt/nightly-tomcat/${project.artifactId}</outputDirectory>
-            </reporting>-->
-        </profile>
-        <profile>
-            <id>release</id>
-<!--            <reporting>
-                 The output dir for the report site for bi-weekly builds, used in Jenkins builds 
-                <outputDirectory>/mnt/reports-tomcat/${project.artifactId}</outputDirectory>
-            </reporting>-->
-        </profile>
-        <profile>
             <id>unisa</id>
             <!-- we use the default outputDirectory -->
         </profile>
